@@ -1,21 +1,4 @@
 /**
- * Creates a new AJAX request and sends it
- * @param {json} data 
- * @param {function} callback 
- */
-function ajaxRequest(data, callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-            const response = JSON.parse(xhr.responseText);
-            callback(response);
-        }
-    }
-    xhr.open('GET', data);
-    xhr.send();
-}
-
-/**
  * Helper function to append lists to the DOM
  * @param {string} listClass - Class of the list that will be created
  * @param {string} divId - ID of the existing div that the new list will be appended to
@@ -57,5 +40,5 @@ function roomList(rooms) {
     createList('rooms', 'roomList', rooms, 'room', 'available', 'empty', 'full');
 }
 
-ajaxRequest("data/employees.json", employeeList);
-ajaxRequest("data/rooms.json", roomList);
+$.get("data/employees.json", employeeList);
+$.get("data/rooms.json", roomList);
