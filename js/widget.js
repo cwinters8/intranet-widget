@@ -40,5 +40,5 @@ function roomList(rooms) {
     createList('rooms', 'roomList', rooms, 'room', 'available', 'empty', 'full');
 }
 
-$.get("data/employees.json", employeeList);
-$.get("data/rooms.json", roomList);
+$.getJSON("data/employees.json", employeeList);
+$.getJSON("data/rooms.json", roomList);
